@@ -1,0 +1,33 @@
+{
+  "name": "giae",
+  "description": "Library to access GIAE's API (htttps://giae.pt)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "ava"
+  },
+  "devDependencies": {
+    "ava": "^5.3.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogeriopvl/giae.git"
+  },
+  "keywords": [
+    "giae"
+  ],
+  "author": "rogeriopvl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rogeriopvl/giae/issues"
+  },
+  "homepage": "https://github.com/rogeriopvl/giae#readme",
+  "dependencies": {
+    "got": "^13.0.0",
+    "nock": "^13.3.8",
+    "tough-cookie": "^4.1.3"
+  }
+}
