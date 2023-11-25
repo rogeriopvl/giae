@@ -1,4 +1,4 @@
-# giae
+# giae | ![CI status](https://github.com/rogeriopvl/giae/actions/workflows/test.yml/badge.svg?branch=main)
 
 GIAE.pt API wrapper for Node.js.
 
