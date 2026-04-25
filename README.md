@@ -23,9 +23,9 @@ await giae.login();
 
 // subsequent requests are now authenticated
 
-const displinas = await giae.disciplinas();
+const disciplinas = await giae.disciplinas();
 
-const sumarios = await giae.sumarios(displinas[0].idturma, displinas[0].id);
+const sumarios = await giae.sumarios(disciplinas[0].idturma, disciplinas[0].id);
 ```
 
 ## Supported endpoints and operations
@@ -55,6 +55,67 @@ To get all the summaries of a course. If don't know the `classId`, you can call 
 ```js
 sumarios(classId, courseId);
 ```
+
+The result is wrapped as `{ courseId, data }` so the caller can correlate the
+response back to the course it was requested for (the GIAE response itself does
+not echo it back).
+
+### /saldo
+
+To get the balance of the authenticated user's school card and digital wallets.
+
+```js
+saldo();
+```
+
+### /movimentoscartao
+
+#### movimentos
+
+To get the list of card transactions for the authenticated user, filtered by
+date range and sector. `sector` is the numeric GIAE sector ID — see the
+[`sectors`](#sectors) export below for the mapping. Omit it to get all sectors.
+
+```js
+movimentos({ startDate, endDate, sector }); // e.g. sector: 3 // Bar
+```
+
+#### extratos
+
+To get the statement for a specific digital wallet.
+
+```js
+extratos({ digitalWalletID });
+```
+
+#### creditos
+
+To get the list of pending credits for the authenticated user.
+
+```js
+creditos();
+```
+
+## Named exports
+
+### sectors
+
+A frozen lookup of GIAE sector IDs to their human-readable Portuguese names.
+Useful when filtering `movimentos` by sector or rendering transaction lists.
+
+```js
+import { sectors } from 'giae';
+
+sectors[3]; // 'Bar'
+```
+
+## Caveats
+
+- **Single session per process.** Configuration and the cookie jar are
+  module-scoped singletons. Calling `Giae({...})` a second time in the same
+  process overwrites the previous config and shares the same session cookie —
+  this library is intended for single-user CLI/script use, not for serving
+  multiple users from one Node process.
 
 ## Security considerations
 

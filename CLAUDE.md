@@ -34,6 +34,8 @@ to serve the maintainer's own needs — coverage is intentionally partial.
 - GIAE expects Portuguese parameter names (`escola`, `nrcartao`, `codigo`,
   `modo`, `acao`, `IdTurma`, `IdDisciplina`, …). Preserve the original casing
   when adding new params — the server is case-sensitive.
+- All date values sent to GIAE are strings in `dd-mm-yyyy` format (e.g.
+  `25-04-2026`). Do not use ISO `YYYY-MM-DD` — the server will not accept it.
 - Most GIAE endpoints are `POST` with a JSON body, even for read-only
   operations. The known exception is `/saldo`, which is `GET` — use
   `request.get` for it and `request.post` for the rest.

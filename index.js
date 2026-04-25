@@ -1,6 +1,10 @@
 import { setConfig } from './lib/config.js';
 import loginv2 from './endpoints/loginv2.js';
 import turma from './endpoints/turma.js';
+import saldo from './endpoints/saldo.js';
+import movimentoscartao from './endpoints/movimentoscartao.js';
+
+export { default as sectors } from './lib/sectors.js';
 
 export default ({
   giaeBaseUrl,
@@ -23,5 +27,9 @@ export default ({
     login: loginv2,
     disciplinas: turma.disciplinas,
     sumarios: turma.sumarios,
+    saldo: saldo.saldo,
+    movimentos: movimentoscartao.pesquisa,
+    extratos: movimentoscartao.getExtratoCartao,
+    creditos: movimentoscartao.getCreditosPendentes,
   };
 };

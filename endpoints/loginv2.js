@@ -6,7 +6,7 @@ const ENDPOINT = '/loginv2';
 const login = async () => {
   const config = getConfig();
 
-  return request(ENDPOINT, {
+  return request.post(ENDPOINT, {
     escola: config.schoolId,
     nrcartao: config.cardNumber,
     codigo: config.password,
