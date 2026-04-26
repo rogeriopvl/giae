@@ -56,3 +56,21 @@ to serve the maintainer's own needs — coverage is intentionally partial.
    request body — match the existing tests' shape.
 3. Re-export the new methods from `index.js`.
 4. Update `README.md`'s "Supported endpoints and operations" section.
+
+## Git
+
+- Commit messages always follow the conventional commit format
+- Commits should be atomic whenever possible, one feature or fix should be
+  commit
+
+## Release
+
+This module is published on NPM, to create a release you need to:
+
+1. bump the version in package.json, the number you change should be
+   determined by the semantic versioning rules
+2. update the CHANGELOG.md file, based on the conventional commit messages
+3. commit these changes, and create a git tag for the release
+4. create a release on github where the body of the release if the
+   corresponding section of the CHANGELOG.md file
+5. publish on NPM with `npm publish`
