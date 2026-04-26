@@ -47,6 +47,8 @@ to serve the maintainer's own needs — coverage is intentionally partial.
 ## Commands
 
 - `npm test` — runs the ava suite. CI runs the same on push (`.github/workflows`).
+- `npm run lint` — runs Prettier (`--check`) and ESLint. Run this after any
+  code change before committing; both must pass.
 - There is no build step; this package is consumed as source ESM.
 
 ## When adding an endpoint

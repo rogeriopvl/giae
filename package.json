@@ -12,7 +12,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "lint": "prettier --check . && eslint ."
   },
   "devDependencies": {
     "ava": "^5.3.1",

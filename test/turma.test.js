@@ -34,7 +34,7 @@ test('sumarios: should call request with the correct params', async (t) => {
     IdDisciplina: '111',
   };
 
-  const giae = await Giae({
+  const giae = Giae({
     giaeBaseUrl: GIAE_BASE_URL,
     schoolId: expectedBody.escola,
     cardNumber: expectedBody.nrcartao,
